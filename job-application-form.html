@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        
+        .form-section {
+            margin-bottom: 30px;
+        }
+        
+        .form-section h2 {
+            font-size: 16px;
+            color: #667eea;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 500;
+            font-size: 14px;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+        
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        input[type="date"]:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+        }
+        
+        input[type="checkbox"],
+        input[type="radio"] {
+            margin-right: 8px;
+            cursor: pointer;
+        }
+        
+        .checkbox-item label {
+            margin: 0;
+            font-weight: normal;
+            cursor: pointer;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .reset-btn {
+            background: #f0f0f0;
+            color: #333;
+        }
+        
+        .reset-btn:hover {
+            background: #e0e0e0;
+        }
+        
+        .required {
+            color: #e74c3c;
+        }
+        
+        @media (max-width: 600px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💼 Job Application Form</h1>
+        <p class="subtitle">Apply for your dream position</p>
+        
+        <form id="jobForm">
+            <!-- Personal Information -->
+            <div class="form-section">
+                <h2>📋 Personal Information</h2>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name <span class="required">*</span></label>
+                        <input type="text" id="firstName" name="firstName" placeholder="John" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name <span class="required">*</span></label>
+                        <input type="text" id="lastName" name="lastName" placeholder="Doe" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" placeholder="john.doe@example.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number <span class="required">*</span></label>
+                    <input type="tel" id="phone" name="phone" placeholder="+1 (555) 123-4567" required>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="dob">Date of Birth</label>
+                        <input type="date" id="dob" name="dob">
+                    </div>
+                    <div class="form-group">
+                        <label for="nationality">Nationality</label>
+                        <input type="text" id="nationality" name="nationality" placeholder="USA">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact Information -->
+            <div class="form-section">
+                <h2>🏠 Contact Information</h2>
+                
+                <div class="form-group">
+                    <label for="address">Street Address</label>
+                    <input type="text" id="address" name="address" placeholder="123 Main Street">
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" id="city" name="city" placeholder="New York">
+                    </div>
+                    <div class="form-group">
+                        <label for="state">State/Province</label>
+                        <input type="text" id="state" name="state" placeholder="NY">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="zip">Postal Code</label>
+                        <input type="text" id="zip" name="zip" placeholder="10001">
+                    </div>
+                    <div class="form-group">
+                        <label for="country">Country</label>
+                        <input type="text" id="country" name="country" placeholder="United States">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Professional Information -->
+            <div class="form-section">
+                <h2>💻 Professional Information</h2>
+                
+                <div class="form-group">
+                    <label for="position">Position Applied For <span class="required">*</span></label>
+                    <input type="text" id="position" name="position" placeholder="Software Engineer" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="experience">Years of Experience</label>
+                    <input type="text" id="experience" name="experience" placeholder="e.g., 5 years">
+                </div>
+                
+                <div class="form-group">
+                    <label for="skills">Skills <span class="required">*</span></label>
+                    <textarea id="skills" name="skills" placeholder="List your key skills (e.g., Python, JavaScript, React, etc.)" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="education">Education</label>
+                    <textarea id="education" name="education" placeholder="e.g., Bachelor of Science in Computer Science from XYZ University"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="certifications">Certifications</label>
+                    <textarea id="certifications" name="certifications" placeholder="List any relevant certifications"></textarea>
+                </div>
+            </div>
+            
+            <!-- Employment Preferences -->
+            <div class="form-section">
+                <h2>⚙️ Employment Preferences</h2>
+                
+                <div class="form-group">
+                    <label>Employment Type</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="radio" id="fullTime" name="employment_type" value="Full-time">
+                            <label for="fullTime">Full-time</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="radio" id="partTime" name="employment_type" value="Part-time">
+                            <label for="partTime">Part-time</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="radio" id="contract" name="employment_type" value="Contract">
+                            <label for="contract">Contract</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="salary">Expected Salary (Annual)</label>
+                    <input type="text" id="salary" name="salary" placeholder="e.g., $80,000 - $100,000">
+                </div>
+                
+                <div class="form-group">
+                    <label for="startDate">Earliest Start Date</label>
+                    <input type="date" id="startDate" name="startDate">
+                </div>
+            </div>
+            
+            <!-- Resume Upload Section -->
+            <div class="form-section">
+                <h2>📄 Upload Your Resume</h2>
+                
+                <div class="form-group">
+                    <label for="resumeFile">Upload Resume (PDF or TXT)</label>
+                    <input type="file" id="resumeFile" name="resumeFile" accept=".pdf,.txt,.docx" style="padding: 8px; border: 2px dashed #667eea;">
+                    <small style="color: #666; margin-top: 5px; display: block;">Upload your resume to auto-fill form with your data</small>
+                </div>
+                
+                <div class="button-group" style="margin-bottom: 20px;">
+                    <button type="button" class="submit-btn" style="background: #27ae60;" onclick="uploadAndFillResume()">📤 Upload & Fill Form</button>
+                    <button type="button" class="reset-btn" style="background: #e74c3c;" onclick="clearResumeData()">🗑️ Clear Resume Data</button>
+                </div>
+                
+                <div id="uploadStatus" style="display: none; padding: 10px; border-radius: 5px; margin-bottom: 15px; font-size: 14px;"></div>
+            </div>
+            
+            <!-- Additional Information -->
+            <div class="form-section">
+                <h2>📝 Additional Information</h2>
+                
+                <div class="form-group">
+                    <label for="coverLetter">Cover Letter / Why do you want this job?</label>
+                    <textarea id="coverLetter" name="coverLetter" placeholder="Tell us why you're interested in this position..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="agree" name="agree" required>
+                        <label for="agree">I agree to the terms and conditions <span class="required">*</span></label>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Buttons -->
+            <div class="button-group">
+                <button type="submit" class="submit-btn">✅ Submit Application</button>
+                <button type="reset" class="reset-btn">🔄 Clear Form</button>
+            </div>
+        </form>
+    </div>
+    
+    <script>
+        // API BASE URL
+        const API_BASE_URL = 'http://localhost:8000';
+        
+        // Handle form submission
+        document.getElementById('jobForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Collect form data
+            const formData = {};
+            const form = document.getElementById('jobForm');
+            const formElements = form.elements;
+            
+            for (let element of formElements) {
+                if (element.name) {
+                    formData[element.name] = element.value;
+                }
+            }
+            
+            try {
+                // Show loading message
+                const submitBtn = document.querySelector('.submit-btn');
+                const originalText = submitBtn.textContent;
+                submitBtn.textContent = '⏳ Submitting...';
+                submitBtn.disabled = true;
+                
+                // Send to backend (optional - for future integration)
+                console.log('Form Data:', formData);
+                
+                // Show success message
+                alert('✅ Application submitted successfully!\n\nThank you for applying!');
+                form.reset();
+                
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            } catch (error) {
+                console.error('Error:', error);
+                alert('❌ Error submitting form. Please try again.');
+            }
+        });
+        
+        // Auto-fill form with sample data (for testing)
+        function fillFormWithSampleData() {
+            const sampleData = {
+                firstName: 'John',
+                lastName: 'Doe',
+                email: 'john.doe@example.com',
+                phone: '+1 (555) 123-4567',
+                dob: '1990-05-15',
+                nationality: 'American',
+                address: '123 Main Street',
+                city: 'New York',
+                state: 'NY',
+                zip: '10001',
+                country: 'United States',
+                position: 'Software Engineer',
+                experience: '8 years',
+                skills: 'Python, JavaScript, React, Node.js, Docker, Kubernetes, AWS',
+                education: 'Bachelor of Science in Computer Science',
+                certifications: 'AWS Certified Solutions Architect',
+                salary: '$100,000 - $150,000',
+                startDate: '2026-07-01',
+                coverLetter: 'I am very interested in this position and believe my skills and experience make me a perfect fit.'
+            };
+            
+            for (const [key, value] of Object.entries(sampleData)) {
+                const element = document.getElementById(key);
+                if (element) {
+                    element.value = value;
+                }
+            }
+            
+            // Check the full-time radio button
+            const fullTimeRadio = document.getElementById('fullTime');
+            if (fullTimeRadio) {
+                fullTimeRadio.checked = true;
+            }
+            
+            // Check the terms checkbox
+            const agreeCheckbox = document.getElementById('agree');
+            if (agreeCheckbox) {
+                agreeCheckbox.checked = true;
+            }
+        }
+        
+        // Add keyboard shortcut to fill sample data: Press Ctrl+Shift+D
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.shiftKey && e.code === 'KeyD') {
+                fillFormWithSampleData();
+                console.log('✅ Form filled with sample data. Press Ctrl+Shift+D to fill again.');
+            }
+        });
+        
+        // Upload and fill form with resume data
+        async function uploadAndFillResume() {
+            const resumeFile = document.getElementById('resumeFile').files[0];
+            const statusDiv = document.getElementById('uploadStatus');
+            
+            if (!resumeFile) {
+                statusDiv.style.display = 'block';
+                statusDiv.style.background = '#fee';
+                statusDiv.style.color = '#c33';
+                statusDiv.textContent = '❌ Please select a resume file first!';
+                return;
+            }
+            
+            // Show loading
+            statusDiv.style.display = 'block';
+            statusDiv.style.background = '#e3f2fd';
+            statusDiv.style.color = '#1976d2';
+            statusDiv.textContent = '⏳ Uploading and extracting resume data...';
+            
+            try {
+                const formData = new FormData();
+                formData.append('profile_name', 'My Resume Profile');
+                formData.append('file', resumeFile);
+                
+                // Upload CV to backend
+                const response = await fetch(`${API_BASE_URL}/api/profiles/upload-cv`, {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`Upload failed: ${response.statusText}`);
+                }
+                
+                const data = await response.json();
+                
+                // Fill form with extracted data
+                fillFormWithResumeData(data.extracted_data);
+                
+                statusDiv.style.background = '#e8f5e9';
+                statusDiv.style.color = '#2e7d32';
+                statusDiv.textContent = '✅ Resume uploaded successfully! Form filled with your data.';
+                
+                // Auto-check terms
+                const agreeCheckbox = document.getElementById('agree');
+                if (agreeCheckbox) {
+                    agreeCheckbox.checked = true;
+                }
+                
+                console.log('Extracted Profile:', data.extracted_data);
+            } catch (error) {
+                statusDiv.style.background = '#fee';
+                statusDiv.style.color = '#c33';
+                statusDiv.textContent = `❌ Error: ${error.message}`;
+                console.error('Upload error:', error);
+            }
+        }
+        
+        // Fill form with data from resume
+        function fillFormWithResumeData(profile) {
+            const mapping = {
+                firstName: 'first_name',
+                lastName: 'last_name',
+                email: 'email',
+                phone: 'phone',
+                address: 'address',
+                city: 'city',
+                state: 'state',
+                zip: 'zip',
+                country: 'country',
+                experience: 'experience',
+                education: 'education',
+                skills: 'skills'
+            };
+            
+            for (const [formFieldId, profileField] of Object.entries(mapping)) {
+                const element = document.getElementById(formFieldId);
+                if (element && profile && profile[profileField]) {
+                    if (Array.isArray(profile[profileField])) {
+                        element.value = profile[profileField].join(', ');
+                    } else {
+                        element.value = profile[profileField];
+                    }
+                }
+            }
+        }
+        
+        // Clear resume data
+        function clearResumeData() {
+            document.getElementById('resumeFile').value = '';
+            const statusDiv = document.getElementById('uploadStatus');
+            statusDiv.style.display = 'none';
+            console.log('Resume data cleared');
+        }
+    </script>
+</body>
+</html>
